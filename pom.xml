@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.c0d3m4513r</groupId>
+    <artifactId>plugin-glue</artifactId>
+    <packaging>jar</packaging>
+    <name>Plugin API Glue</name>
+    <version>0.0.1</version>
+
+    <parent>
+        <groupId>com.c0d3m4513r.pom</groupId>
+        <artifactId>plugins</artifactId>
+        <version>0.2.0</version>
+        <relativePath>../plugins/pom.xml</relativePath>
+    </parent>
+
+    <licenses>
+        <license>
+            <name>All-Rights-Reserved</name>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/Pixel-gaming/plugin-glue</url>
+        <connection>scm:git</connection>
+    </scm>
+
+    <description>Ties api implementations, api and plugins together.</description>
+    <url>https://github.com/Pixel-gaming/plugin-glue</url>
+
+    <developers>
+        <developer>
+            <id>c0d3m4513r</id>
+            <name>C0D3 M4513R</name>
+            <url>https://c0d3m4513r.com/</url>
+        </developer>
+    </developers>
+
+    <repositories>
+        <repository>
+            <id>c0d3m4513r</id>
+            <name>C0D3M4513R's nexus maven repo - Release and Snapshot</name>
+            <url>https://nexus.c0d3m4513r.com/repository/c0d3m4513r/</url>
+            <snapshots/>
+            <releases/>
+        </repository>
+        <repository>
+            <id>sponge</id>
+            <url>https://nexus.c0d3m4513r.com/repository/sponge/</url>
+        </repository>
+    </repositories>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <!--suppress VulnerableLibrariesLocal -->
+        <!--not my concern. I just support all sponge v7 versions. Which version is vulnerable to what is whatever-->
+        <dependency>
+            <groupId>org.spongepowered</groupId>
+            <artifactId>spongeapi</artifactId>
+            <!--suppress MavenPackageUpdate -->
+            <version>7.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.c0d3m4513r</groupId>
+            <artifactId>api-impl-sponge-v7</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.checkerframework</groupId>
+            <artifactId>checker-qual</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.c0d3m4513r</groupId>
+            <artifactId>api-impl-sponge-v7</artifactId>
+            <version>0.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <filters>
+            <filter>../plugin.properties</filter>
+        </filters>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>templating-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <id>filter-src</id>
+                        <goals>
+                            <goal>filter-sources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
