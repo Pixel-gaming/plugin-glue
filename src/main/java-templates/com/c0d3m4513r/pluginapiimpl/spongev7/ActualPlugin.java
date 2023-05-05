@@ -12,7 +12,7 @@ import java.nio.file.Path;
 @org.spongepowered.api.plugin.Plugin(
         id = "${pluginid}",
         name = "${pluginname}",
-        description = "${plugindescriptionb}",
+        description = "${plugindescription}",
         version = "${version}"
 )
 public class ActualPlugin {
@@ -28,7 +28,7 @@ public class ActualPlugin {
     private Path configFile;
 
     @Inject
-    public ActualPlugin(PluginContainer container, final org.slf4j.Logger logger) {
-        new com.c0d3m4513r.pluginapiimpl.spongev7.Plugin(container, logger);
+    public ActualPlugin(PluginContainer container, final org.slf4j.Logger logger) throws IOException{
+        new com.c0d3m4513r.pluginapiimpl.spongev7.Plugin(container, logger, configDir, configFile);
     }
 }
