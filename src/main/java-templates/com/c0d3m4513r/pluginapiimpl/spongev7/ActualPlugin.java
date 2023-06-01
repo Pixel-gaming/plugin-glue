@@ -15,6 +15,7 @@ import java.nio.file.Path;
         description = "${plugindescription}",
         version = "${version}"
 )
+@SuppressWarnings("type.anno.before.decl.anno")
 public class ActualPlugin {
 
     @Nullable
