@@ -52,6 +52,7 @@
             <url>https://nexus.c0d3m4513r.com/repository/sponge/</url>
         </repository>
     </repositories>
+    <distributionManagement/>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -121,6 +122,7 @@
                 <configuration>
                     <skip>true</skip>
                 </configuration>
+                <inherited>false</inherited>
             </plugin>
         </plugins>
     </build>
