@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.spongepowered.api.asset.Asset;
 import org.spongepowered.api.config.ConfigDir;
 import org.spongepowered.api.config.DefaultConfig;
+import org.spongepowered.api.event.Event;
 import org.spongepowered.api.plugin.PluginContainer;
 import org.spongepowered.plugin.meta.PluginDependency;
 
@@ -48,6 +49,11 @@ public class ActualPlugin extends PluginLoader<${mainConfigPath}> implements Plu
     public ActualPlugin(PluginContainer container, final org.slf4j.Logger logger) throws IOException{
         this.container = container;
         new com.c0d3m4513r.pluginapiimpl.spongev7.Plugin(this, logger, configDir, configFile);
+    }
+
+    @Inject
+    public void handleEvent(Event event) {
+        handler.accept(event);
     }
 
     @Override
