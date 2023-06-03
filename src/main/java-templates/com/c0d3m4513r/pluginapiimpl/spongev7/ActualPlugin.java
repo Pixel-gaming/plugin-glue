@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.spongepowered.api.asset.Asset;
 import org.spongepowered.api.config.ConfigDir;
 import org.spongepowered.api.config.DefaultConfig;
+import org.spongepowered.api.event.Event;
+import org.spongepowered.api.event.Listener;
 import org.spongepowered.api.event.game.state.*;
 import org.spongepowered.api.plugin.PluginContainer;
 import org.spongepowered.plugin.meta.PluginDependency;
@@ -51,45 +53,14 @@ public class ActualPlugin extends PluginLoader<${mainConfigPath}> implements Plu
         plugin = new com.c0d3m4513r.pluginapiimpl.spongev7.Plugin(this, logger, configDir, configFile);
     }
 
-    //todo: this way of doing events is not good.
-    @Inject
-    public void Preinit(GamePreInitializationEvent event) {
-        plugin.PreInit(event);
-    }
-
-    @Inject
-    public void Init(GameInitializationEvent event) {
-        plugin.Init(event);
-    }
-
-    @Inject
-    public void load(GameLoadCompleteEvent event) {
-        plugin.load(event);
-    }
-
-    @Inject
-    public void ServerStart(GameStartedServerEvent event) {
-        plugin.serverStarted(event);
+    @Listener
+    public void Preinit(Event event) {
+        handler.accept(event);
     }
 
     @Override
     public ${mainConfigPath} getNewConfig() {
         return new ${mainConfigPath}();
-    }
-
-    @Override
-    public PluginInfo getPluginInfo() {
-        return pluginInfo;
-    }
-
-    @Override
-    public @NonNull String getId() {
-        return pluginInfo.id;
-    }
-
-    @Override
-    public @NonNull String getName() {
-        return pluginInfo.getName();
     }
 
     @Override
