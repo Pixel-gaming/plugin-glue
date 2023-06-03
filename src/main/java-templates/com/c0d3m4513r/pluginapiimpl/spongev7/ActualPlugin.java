@@ -64,6 +64,16 @@ public class ActualPlugin extends PluginLoader<${mainConfigPath}> implements Plu
     }
 
     @Override
+    public PluginInfo getPluginInfo(){
+        return pluginInfo;
+    }
+
+    @Override
+    public String getId(){
+        return pluginInfo.getId();
+    }
+
+    @Override
     public @NonNull Optional<String> getVersion() {
         return Optional.of(pluginInfo.getVersion());
     }
