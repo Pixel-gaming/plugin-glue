@@ -1,0 +1,14 @@
+[
+    {
+        "modid": "${pluginid}",
+        "name": "${pluginname}",
+        "version": "${versionName}",
+        "description": "${plugindescription}",
+        "dependencies": [
+            "spongeapi@7.0.0"
+        ],
+        "requiredMods": [
+            "spongeapi@7.0.0"
+        ]
+    }
+]
