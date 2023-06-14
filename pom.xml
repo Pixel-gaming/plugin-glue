@@ -13,7 +13,7 @@
         <groupId>com.c0d3m4513r.pom</groupId>
         <artifactId>plugins</artifactId>
         <version>0.2.7</version>
-        <relativePath>../plugins/pom.xml</relativePath>
+        <relativePath>../../plugins/pom.xml</relativePath>
     </parent>
 
     <licenses>
@@ -136,6 +136,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <debug>false</debug>
+                    <source>8</source>
+                    <target>8</target>
+                    <release>8</release>
+                </configuration>
             </plugin>
 
             <plugin>
