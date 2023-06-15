@@ -100,7 +100,7 @@
         <dependency>
             <groupId>com.c0d3m4513r</groupId>
             <artifactId>api-impl-sponge-v7</artifactId>
-            <version>0.1.5</version>
+            <version>0.1.6</version>
         </dependency>
         <dependency>
             <groupId>com.c0d3m4513r</groupId>
